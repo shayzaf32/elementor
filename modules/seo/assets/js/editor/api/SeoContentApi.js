@@ -24,7 +24,7 @@ export const getFocusKeywords = async (
 		redirect: 'follow',
 	};
 
-	fetch( elementorCommonConfig.ajax.url, requestOptions )
+	await fetch( elementorCommonConfig.ajax.url, requestOptions )
 		.then( ( response ) => {
 			setData( response );
 		} )
