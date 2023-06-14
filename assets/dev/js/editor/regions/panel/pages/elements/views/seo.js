@@ -11,7 +11,6 @@ module.exports = Marionette.ItemView.extend( {
 	},
 
 	onShow() {
-		console.log('SEO onShow');
-		render(<App />, document.getElementById('seo-panel-content'));
+		render( <App />, document.getElementById( 'seo-panel-content' ) );
 	},
 } );

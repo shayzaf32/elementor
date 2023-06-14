@@ -19,19 +19,6 @@ const MenuProps = {
 	},
 };
 
-const names = [
-	'Oliver Hansen',
-	'Van Henry',
-	'April Tucker',
-	'Ralph Hubbard',
-	'Omar Alexander',
-	'Carlos Abbott',
-	'Miriam Wagner',
-	'Bradley Wilkerson',
-	'Virginia Andrews',
-	'Kelly Snyder',
-];
-
 function getStyles( name, personName, theme ) {
 	return {
 		fontWeight:
@@ -41,31 +28,38 @@ function getStyles( name, personName, theme ) {
 	};
 }
 
-export default function MultipleSelect() {
+// eslint-disable-next-line react/prop-types
+const MultipleSelect = ( { keyWords, setSelectValueChanged, setSelectValue } ) => {
+	if ( ! keyWords || ! keyWords.data ) {
+		return ( '' );
+	}
+	keyWords = keyWords.data.keywords;
+
 	const theme = useTheme();
-	const [ personName, setPersonName ] = React.useState( [] );
+	const [ keyWordValue, setKeyword ] = React.useState( [] );
 
 	const handleChange = ( event ) => {
 		const {
 			target: { value },
 		} = event;
-		setPersonName(
+		setKeyword(
 			// On autofill we get a stringified value.
 			'string' === typeof value ? value.split( ',' ) : value,
 		);
+		setSelectValueChanged( true );
+		setSelectValue( keyWordValue );
 	};
 
 	return (
 		<div>
 			<FormControl sx={ { m: 1, width: 300 } }>
-				<InputLabel id="demo-multiple-chip-label">Chip</InputLabel>
+				<InputLabel id="demo-multiple-chip-label">Focus Keywords</InputLabel>
 				<Select
 					labelId="demo-multiple-chip-label"
 					id="demo-multiple-chip"
-					multiple
-					value={ personName }
+					value={ keyWordValue }
 					onChange={ handleChange }
-					input={ <OutlinedInput id="select-multiple-chip" label="Chip" /> }
+					input={ <OutlinedInput id="select-multiple-chip" label="Focus Keywords" /> }
 					renderValue={ ( selected ) => (
 						<Box sx={ { display: 'flex', flexWrap: 'wrap', gap: 0.5 } }>
 							{ selected.map( ( value ) => (
@@ -75,17 +69,19 @@ export default function MultipleSelect() {
 					) }
 					MenuProps={ MenuProps }
 				>
-					{ names.map( ( name ) => (
+					{ keyWords.map( ( keyWord ) => (
 						<MenuItem
-							key={ name }
-							value={ name }
-							style={ getStyles( name, personName, theme ) }
+							key={ keyWord }
+							value={ keyWord }
+							style={ getStyles( keyWord, keyWordValue, theme ) }
 						>
-							{ name }
+							{ keyWord }
 						</MenuItem>
 					) ) }
 				</Select>
 			</FormControl>
 		</div>
 	);
-}
+};
+
+export default MultipleSelect;
