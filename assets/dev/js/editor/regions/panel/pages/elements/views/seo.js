@@ -1,4 +1,5 @@
-import { render } from '@wordpress/element'
+import { render } from '@wordpress/element';
+import App from '../../../../../../../../../modules/seo/assets/js/editor/app';
 
 module.exports = Marionette.ItemView.extend( {
 	template: '#tmpl-elementor-panel-seo',
@@ -10,7 +11,7 @@ module.exports = Marionette.ItemView.extend( {
 	},
 
 	onShow() {
-		console.log('SEO onShow')
-		render(<div>test</div>, document.getElementById('seo-panel-content'));
+		console.log('SEO onShow');
+		render(<App />, document.getElementById('seo-panel-content'));
 	},
 } );

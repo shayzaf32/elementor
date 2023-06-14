@@ -139,7 +139,8 @@
         "react-markdown": "^8.0.5",
         "react-redux": "^7.2.6",
         "react-sketch-canvas": "^6.2.0",
-        "write": "^2.0.0"
+        "write": "^2.0.0",
+		"@mui/icons-material": ""
     },
     "overrides": {
         "@reach/router": {
