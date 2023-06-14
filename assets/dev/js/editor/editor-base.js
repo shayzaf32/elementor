@@ -236,6 +236,7 @@ export default class EditorBase extends Marionette.Application {
 				pages: {
 					elements: {
 						views: {
+							Seo: require( 'elementor-panel/pages/elements/views/seo' ),
 							Global: require( 'elementor-panel/pages/elements/views/global' ),
 							Elements: require( 'elementor-panel/pages/elements/views/elements' ),
 						},

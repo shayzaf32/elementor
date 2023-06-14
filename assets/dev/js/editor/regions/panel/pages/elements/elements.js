@@ -4,6 +4,7 @@ var PanelElementsCategoriesCollection = require( './collections/categories' ),
 	PanelElementsElementsView = elementor.modules.layouts.panel.pages.elements.views.Elements,
 	PanelElementsSearchView = require( './views/search' ),
 	PanelElementsGlobalView = require( './views/global' ),
+	PanelElementsSeoView = require( './views/seo' ),
 	PanelElementsLayoutView;
 
 PanelElementsLayoutView = Marionette.LayoutView.extend( {
@@ -56,6 +57,10 @@ PanelElementsLayoutView = Marionette.LayoutView.extend( {
 			global: {
 				region: this.elements,
 				view: PanelElementsGlobalView,
+			},
+			seo: {
+				region: this.elements,
+				view: PanelElementsSeoView,
 			},
 		};
 

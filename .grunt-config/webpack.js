@@ -122,6 +122,7 @@ const entry = {
 	'editor-environment-v2': path.resolve( __dirname, '../core/editor/assets/js/editor-environment-v2.js' ),
 	'responsive-bar': path.resolve( __dirname, '../assets/dev/js/editor/regions/responsive-bar/index.js' ),
 	'ai': path.resolve( __dirname, '../modules/ai/assets/js/editor/index.js' ),
+	'seo': path.resolve( __dirname, '../modules/seo/assets/js/editor/index.js' ),
 	// Temporary solution for the AI App in the Admin.
 	'ai-admin': path.resolve( __dirname, '../modules/ai/assets/js/admin/index.js' ),
 	'styleguide': path.resolve( __dirname, '../modules/styleguide/assets/js/styleguide.js' ),

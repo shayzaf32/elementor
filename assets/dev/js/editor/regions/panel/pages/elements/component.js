@@ -9,6 +9,7 @@ export default class Component extends ComponentBase {
 		return {
 			categories: { title: __( 'Elements', 'elementor' ) },
 			global: { title: __( 'Global', 'elementor' ) },
+			seo: { title: __( 'SEO', 'elementor' ) },
 		};
 	}
 
