@@ -28,8 +28,9 @@ export const getFocusKeywords = async (
 		.then( ( response ) => response.json() )
 		.then( ( result ) => {
 			setData( result.data.responses.seo_get_focus_keywords.data.keywords );
-			const analyze = 'RE-ANALYZE' === analyzeButtonText ? 'ANALYZE' : 'RE-ANALYZE';
-			setAnalyzeButtonText( analyze );
+			if ( 'ANALYZE' === analyzeButtonText ) {
+				setAnalyzeButtonText( 'RE-ANALYZE' );
+			}
 			setAnalyzeButtonDisabled( false );
 		} )
 		.catch( ( e ) => {
@@ -72,6 +73,7 @@ export const fetchKeyWordsAnalyzeData = async (
 				loaded: false,
 				isPass: data.data.responses[ suggestion.action ].data.pass,
 				suggestion: data.data.responses[ suggestion.action ].data.suggestion,
+				message: data.data.responses[ suggestion.action ].data.message,
 				actions: suggestion.actions,
 			};
 			setSuggestionsStructure( suggestionObject );

@@ -24,6 +24,7 @@ const SeoContent = () => {
 			loading: true,
 			isPass: false,
 			suggestion: '',
+			message: '',
 			actions: '{"seo_is_keyword_in_heading":{"action":"seo_is_keyword_in_heading"}}',
 		},
 	);
@@ -34,6 +35,7 @@ const SeoContent = () => {
 			loading: false,
 			isPass: false,
 			suggestion: '',
+			message: '',
 			actions: '{"seo_is_keyword_in_title":{"action":"seo_is_keyword_in_title"}}',
 		},
 	);
@@ -43,6 +45,7 @@ const SeoContent = () => {
 			action: 'seo_is_keyword_in_url',
 			loaded: false,
 			isPass: false,
+			message: '',
 			actions: '{"seo_get_focus_keywords_in_url":{"action":"seo_get_focus_keywords_in_url"}}',
 		},
 	);
@@ -52,6 +55,7 @@ const SeoContent = () => {
 			action: 'seo_is_keyword_in_subheadings',
 			loaded: false,
 			isPass: false,
+			message: '',
 			actions: '{"seo_is_keyword_in_subheadings":{"action":"seo_is_keyword_in_subheadings"}}',
 		},
 	);
@@ -61,6 +65,7 @@ const SeoContent = () => {
 			action: 'seo_is_keyword_in_description',
 			loaded: false,
 			isPass: false,
+			message: '',
 			actions: '{"seo_is_keyword_in_description":{"action":"seo_is_keyword_in_description"}}',
 		},
 	);

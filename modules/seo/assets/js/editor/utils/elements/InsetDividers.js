@@ -36,7 +36,7 @@ export default function InsetDividers( { suggestionsKeywordStructure } ) {
 								}
 							</Avatar>
 						</ListItemAvatar>
-						<ListItemText primary={ suggestionsKeywordStructure.suggestion } />
+						<ListItemText primary={ suggestionsKeywordStructure.message }  secondary={ 'Suggestion: ' + suggestionsKeywordStructure.suggestion }/>
 					</ListItem>
 				</>
 			)
