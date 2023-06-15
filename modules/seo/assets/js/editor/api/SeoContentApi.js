@@ -25,9 +25,9 @@ export const getFocusKeywords = async (
 	};
 
 	await fetch( elementorCommonConfig.ajax.url, requestOptions )
-		.then( ( response ) => response.text() )
+		.then( ( response ) => response.json() )
 		.then( ( result ) => {
-			setData( JSON.parse( result ) );
+			setData( result.data.responses.seo_get_focus_keywords.data.keywords );
 			const analyze = 'RE-ANALYZE' === analyzeButtonText ? 'ANALYZE' : 'RE-ANALYZE';
 			setAnalyzeButtonText( analyze );
 			setAnalyzeButtonDisabled( false );
@@ -54,7 +54,7 @@ export const fetchKeyWordsAnalyzeData = async (
 	urlencoded.append( '_nonce', elementorCommonConfig.ajax.nonce );
 	urlencoded.append( 'initial_document_id', elementor.config.document.id );
 	urlencoded.append( 'editor_post_id', elementor.config.document.id );
-	urlencoded.append( 'actions', suggestion.actions );
+	urlencoded.append( 'actions', JSON.stringify( suggestion.actions ) );
 
 	var requestOptions = {
 		method: 'POST',
@@ -67,10 +67,14 @@ export const fetchKeyWordsAnalyzeData = async (
 		.then( ( response ) => response.text() )
 		.then( ( result ) => {
 			data = JSON.parse( result );
-			suggestion.loading = false;
-			suggestion.isPass = data.data[ suggestion.action ].pass;
-			suggestion.suggestion = data.data[ suggestion.action ].suggestion;
-			setSuggestionsStructure( suggestion );
+			const suggestionObject = {
+				action: suggestion.action,
+				loaded: false,
+				isPass: data.data.responses[ suggestion.action ].data.pass,
+				suggestion: data.data.responses[ suggestion.action ].data.suggestion,
+				actions: suggestion.actions,
+			};
+			setSuggestionsStructure( suggestionObject );
 		} )
 		.catch( ( e ) => {
 			setError( e.message );
