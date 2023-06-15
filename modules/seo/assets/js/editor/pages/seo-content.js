@@ -175,7 +175,7 @@ const SeoContent = () => {
 							justifyContent: 'space-between',
 							alignItems: 'center' } }
 						>
-							<label >Analyze with AI</label> <Button variant="contained" onClick={ analyzeHandleClick } disabled={ analyzeButtonDisabled } sx={ { backgroundColor: '#F0ABFC', ':hover': {
+							<label >Analyze with AI</label> <Button variant="contained" onClick={ analyzeHandleClick } disabled={ analyzeButtonDisabled } sx={ { color: '#000000', backgroundColor: '#F0ABFC', ':hover': {
 								bgcolor: '#d004d4',
 							} } } endIcon={ 'ANALYZE' === analyzeButtonText ? <AutoAwesomeIcon /> : <WifiProtectedSetupIcon /> }>{ analyzeButtonText }</Button></div>
 						<br />
