@@ -85,7 +85,7 @@ class Module extends BaseModule {
 			$suggestion = $app->suggest_page_title( $data['keyword'], $this->clean_html( $html ) );
 		}
 
-		$message = sprintf( __( 'Keyword %s found in title' ), $pass ? '' : 'not' );
+		$message = sprintf( __( 'Keyword %s found in title', 'elementor' ), $pass ? '' : 'not' );
 
 		return [
 			'pass' => $pass,
@@ -112,7 +112,7 @@ class Module extends BaseModule {
 			$suggestion = $app->suggest_h1_title( $data['keyword'], $this->clean_html( $html ) );
 		}
 
-		$message = sprintf( __( 'Keyword %s found in heading' ), $pass ? '' : 'not' );
+		$message = sprintf( __( 'Keyword %s found in heading', 'elementor' ), $pass ? '' : 'not' );
 
 		return [
 			'pass' => $pass,
@@ -141,12 +141,12 @@ class Module extends BaseModule {
 			}
 		}
 
-		$message = sprintf( __( 'Keyword %s found in subheadings' ), $pass ? '' : 'not' );
+		$message = sprintf( __( 'Keyword %s found in subheadings', 'elementor' ), $pass ? '' : 'not' );
 
 		return [
 			'pass' => $pass,
 			'message' => $message,
-			'suggestion' => __( 'None of the subheadings in the page contains the selected keyword' ),
+			'suggestion' => __( 'None of the subheadings in the page contains the selected keyword', 'elementor' ),
 		];
 	}
 
@@ -168,7 +168,7 @@ class Module extends BaseModule {
 			$suggestion = $app->suggest_page_description( $data['keyword'], $this->clean_html( $html ) );
 		}
 
-		$message = sprintf( __( 'Keyword %s found in description' ), $pass ? '' : 'not' );
+		$message = sprintf( __( 'Keyword %s found in description', 'elementor' ), $pass ? '' : 'not' );
 
 		return [
 			'pass' => $pass,
@@ -189,12 +189,12 @@ class Module extends BaseModule {
 		$url = get_permalink( $data['editor_post_id'] );
 		$pass = false !== strpos( $url, $data['keyword'] );
 
-		$message = sprintf( __( 'Keyword %s found in URL' ), $pass ? '' : 'not' );
+		$message = sprintf( __( 'Keyword %s found in URL', 'elementor' ), $pass ? '' : 'not' );
 
 		return [
 			'pass' => $pass,
 			'message' => $message,
-			'suggestion' => __( 'The URL of the page does not contain the selected keyword' ),
+			'suggestion' => __( 'The URL of the page does not contain the selected keyword', 'elementor' ),
 		];
 	}
 
