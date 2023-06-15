@@ -54,7 +54,7 @@ class OpenAI extends Base_App {
 	 * @throws \Exception
 	 */
 	public function suggest_page_title( string $keyword, string $html ): string {
-		$prompt = "Generate a page title that contains this keyword: `{$keyword}`,";
+		$prompt = "Generate text for page title that contains this keyword: `{$keyword}`,";
 		$prompt .= " with context to the following content: `{$html}`";
 
 		$response = $this->completion_request( $prompt);
@@ -86,7 +86,7 @@ class OpenAI extends Base_App {
 	 * @throws \Exception
 	 */
 	public function suggest_page_description( string $keyword, string $html ): string {
-		$prompt = "Generate short page description that contains this keyword: `{$keyword}`,";
+		$prompt = "Generate short text for page description that contains this keyword: `{$keyword}`,";
 		$prompt .= " with context to the following content: `{$html}`";
 
 		$response = $this->completion_request( $prompt);
