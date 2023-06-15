@@ -55,7 +55,8 @@ class OpenAI extends Base_App {
 	 */
 	public function suggest_page_title( string $keyword, string $html ): string {
 		$prompt = "Generate text for page title that contains this keyword: `{$keyword}`,";
-		$prompt .= " with context to the following content: `{$html}`";
+		$prompt .= " with context to the following content: `{$html}`.";
+		$prompt .= " reply your answer in plain text only";
 
 		$response = $this->completion_request( $prompt);
 
@@ -71,7 +72,8 @@ class OpenAI extends Base_App {
 	 */
 	public function suggest_h1_title( string $keyword, string $html ): string {
 		$prompt = "Generate text for H1 title that contains this keyword: `{$keyword}`,";
-		$prompt .= " with context to the following content: `{$html}`";
+		$prompt .= " with context to the following content: `{$html}`.";
+		$prompt .= " reply your answer in plain text only";
 
 		$response = $this->completion_request( $prompt);
 
@@ -87,7 +89,8 @@ class OpenAI extends Base_App {
 	 */
 	public function suggest_page_description( string $keyword, string $html ): string {
 		$prompt = "Generate short text for page description that contains this keyword: `{$keyword}`,";
-		$prompt .= " with context to the following content: `{$html}`";
+		$prompt .= " with context to the following content: `{$html}`.";
+		$prompt .= " reply your answer in plain text only";
 
 		$response = $this->completion_request( $prompt);
 
