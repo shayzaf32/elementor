@@ -70,7 +70,7 @@ class OpenAI extends Base_App {
 	 * @throws \Exception
 	 */
 	public function suggest_h1_title( string $keyword, string $html ): string {
-		$prompt = "Generate H1 title that contains this keyword: `{$keyword}`,";
+		$prompt = "Generate text for H1 title that contains this keyword: `{$keyword}`,";
 		$prompt .= " with context to the following content: `{$html}`";
 
 		$response = $this->completion_request( $prompt);
