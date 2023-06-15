@@ -30,11 +30,9 @@ function getStyles( name, personName, theme ) {
 
 // eslint-disable-next-line react/prop-types
 const MultipleSelect = ( { keyWords, setSelectValueChanged, setSelectValue } ) => {
-	if ( ! keyWords || ! keyWords.data ) {
+	if ( ! keyWords ) {
 		return ( '' );
 	}
-	keyWords = keyWords.data.keywords;
-
 	const theme = useTheme();
 	const [ keyWordValue, setKeyword ] = React.useState( [] );
 
@@ -42,12 +40,10 @@ const MultipleSelect = ( { keyWords, setSelectValueChanged, setSelectValue } ) =
 		const {
 			target: { value },
 		} = event;
-		setKeyword(
-			// On autofill we get a stringified value.
-			'string' === typeof value ? value.split( ',' ) : value,
-		);
+		const word = 'string' === typeof value ? value.split( ',' ) : value;
+		setKeyword(	word );
 		setSelectValueChanged( true );
-		setSelectValue( keyWordValue );
+		setSelectValue( word[0] );
 	};
 
 	return (

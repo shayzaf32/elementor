@@ -131,42 +131,25 @@ const SeoContent = () => {
 	// Fetch Data
 	React.useEffect( () => {
 		if ( selectValueChanged ) {
-			setSuggestionsHeadingKeywordStructure( {
-				action: 'seo_is_keyword_in_heading',
-				loading: true,
-				isPass: false,
-				suggestion: '',
-				actions: '{"seo_is_keyword_in_heading":{"action":"seo_is_keyword_in_heading"}}',
-			} );
+			suggestionsHeadingKeywordStructure.loading = true;
+			suggestionsHeadingKeywordStructure.isPass = false;
+			suggestionsHeadingKeywordStructure.actions = { seo_is_keyword_in_heading: { action: 'seo_is_keyword_in_heading', data: { keyword: selectValue } } };
 
-			setSuggestionsPageTitleKeywordStructure( {
-				action: 'seo_is_keyword_in_title',
-				loading: false,
-				isPass: false,
-				suggestion: '',
-				actions: '{"seo_is_keyword_in_title":{"action":"seo_is_keyword_in_title"}}',
-			} );
+			suggestionsPageTitleKeywordStructure.loading = true;
+			suggestionsPageTitleKeywordStructure.isPass = false;
+			suggestionsPageTitleKeywordStructure.actions = { seo_is_keyword_in_title: { action: 'seo_is_keyword_in_title', data: { keyword: selectValue } } };
 
-			setSuggestionsUrlPageKeywordStructure( {
-				action: 'seo_is_keyword_in_url',
-				loaded: false,
-				isPass: false,
-				actions: '{"seo_is_keyword_in_url":{"action":"seo_is_keyword_in_url"}}',
-			} );
+			suggestionsUrlPageKeywordStructure.loading = true;
+			suggestionsUrlPageKeywordStructure.isPass = false;
+			suggestionsUrlPageKeywordStructure.actions = { seo_is_keyword_in_url: { action: 'seo_is_keyword_in_url', data: { keyword: selectValue } } };
 
-			setSuggestionsSubheadingKeywordStructure( {
-				action: 'seo_is_keyword_in_subheadings',
-				loaded: false,
-				isPass: false,
-				actions: '{"seo_is_keyword_in_subheadings":{"action":"seo_is_keyword_in_subheadings"}}',
-			} );
+			suggestionsSubheadingKeywordStructure.loading = true;
+			suggestionsSubheadingKeywordStructure.isPass = false;
+			suggestionsSubheadingKeywordStructure.actions = { seo_is_keyword_in_subheadings: { action: 'seo_is_keyword_in_subheadings', data: { keyword: selectValue } } };
 
-			setSuggestionsDescriptionKeywordStructure( {
-				action: 'seo_is_keyword_in_description',
-				loaded: false,
-				isPass: false,
-				actions: '{"seo_is_keyword_in_description":{"action":"seo_is_keyword_in_description"}}',
-			} );
+			suggestionsDescriptionKeywordStructure.loading = true;
+			suggestionsDescriptionKeywordStructure.isPass = false;
+			suggestionsDescriptionKeywordStructure.actions = { seo_is_keyword_in_description: { action: 'seo_is_keyword_in_description', data: { keyword: selectValue } } };
 
 			fetchAnalyzeCountKeywordsData();
 			fetchAnalyzePageTitleKeywordsData();
@@ -210,7 +193,6 @@ const SeoContent = () => {
 					</div>
 					<br />
 				</Item>
-				<Item>Item 2</Item>
 			</Stack>
 		</Box>
 	);
